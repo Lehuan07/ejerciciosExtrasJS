@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1: Validación de Formulario Simple</title>
+    <link rel="stylesheet" href="/Ejercicio1ValidacionForm/styles.css">
+    <script src="/Ejercicio1ValidacionForm/script.js" defer></script>
+</head>
+<body>
+    <pre>🎯 Objetivo
+    Crear un formulario en HTML y usar JavaScript para validar los datos ingresados.</pre><pre> Si hay errores, se marcan los campos correspondientes en rojo y se muestra un mensaje. </pre><pre> Si todo está bien, se muestra la información ingresada en pantalla.</pre> <br> <br> <br>
+
+
+    <form id="formulario" class="form">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" class="input"/>
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="input"/>
+    <label for="edad">Edad:</label>
+        <input type="number" id="edad" class="input"/>
+    <button type="submit" class="input">Enviar</button>
+</form>
+
+<div id="errores" class="rojo"></div>
+<div id="resultado" class="verde"></div>
+
+</body>
+</html>
