@@ -2,11 +2,11 @@
 🧠 Requisitos funcionales:
 *Ingresar una tarea en el campo de texto y agregarla con un botón.
 *Cada tarea debe aparecer como un <li> en la lista.
-Cada <li> debe tener:
+*Cada <li> debe tener:
 *El texto de la tarea.
 *Un botón ❌ para eliminarla.
-Si se hace clic sobre el texto de la tarea (no el botón), la tarea se marca como completada:
-Puede ser tachada (con CSS: text-decoration: line-through) o con otro estilo que elijas.
+*Si se hace clic sobre el texto de la tarea (no el botón), la tarea se marca como completada:
+*Puede ser tachada (con CSS: text-decoration: line-through) o con otro estilo que elijas.
 */
 
 let boton = document.querySelector("#formulario");
@@ -41,24 +41,25 @@ boton.addEventListener("click", (event) =>{
 
     let agregarTarea = document.createElement("li");
 
-// Nuevo span para contener solo el texto
-let spanTexto = document.createElement("span");
-spanTexto.textContent = retornoTarea;
+    // Nuevo span para contener solo el texto
+    let spanTexto = document.createElement("span");
+    spanTexto.textContent = retornoTarea;
 
-let botonEliminar = crearBtnEliminar();
-botonEliminar.classList.add("botonEliminar");
+    let botonEliminar = crearBtnEliminar();
+    botonEliminar.classList.add("botonEliminar");
 
-botonEliminar.addEventListener("click", (e) => {
-    e.stopPropagation();
-    agregarTarea.remove();
-});
+    botonEliminar.addEventListener("click", (e) => {
+        //Detenemos el burbujeo
+        e.stopPropagation();
+        agregarTarea.remove();
+    });
 
-spanTexto.addEventListener("click", () => {
-    spanTexto.classList.toggle("completado");
-});
+    spanTexto.addEventListener("click", () => {
+        spanTexto.classList.toggle("completado");
+    });
 
-agregarTarea.appendChild(spanTexto);
-agregarTarea.appendChild(botonEliminar);
-lista.appendChild(agregarTarea);
-input.value = "";
+    agregarTarea.appendChild(spanTexto);
+    agregarTarea.appendChild(botonEliminar);
+    lista.appendChild(agregarTarea);
+    input.value = "";
 })
