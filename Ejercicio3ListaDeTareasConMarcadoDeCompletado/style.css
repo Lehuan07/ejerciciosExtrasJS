@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: radial-gradient(125% 125% at 50% 100%, #000000 40%, #350136 100%);
+    background-repeat: no-repeat;
+    color: #fafafa;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+pre{
+    margin: 2rem;
+}
+
+.form{
+    width: 30rem;
+    height: 20rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}   
+
+.label{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.input{
+    height: 3rem;
+    width: 25rem;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    border-bottom: #e20ae6 3px solid;
+    padding: 1rem;
+    background: none;
+    outline: none;
+    color: #fafafa;
+    transition: .3s all ease;
+    font-size: 1.8rem;
+}
+
+.input:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn{
+    height: 4rem;
+    width: 25rem;
+    border-radius: 0.5rem;
+    border: #e20ae6 3px solid;
+    background-color: transparent;
+    outline: none;
+    color: #fafafa;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    transition: .3s all ease;
+}
+
+.btn:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.completado{
+    color: #0ae64c;
+}
