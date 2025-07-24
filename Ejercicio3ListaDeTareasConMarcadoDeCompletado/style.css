@@ -79,10 +79,38 @@ pre{
     transition: .3s all ease;
 }
 
+.lista {
+    width: 30rem;
+}
+
+.lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: #ffffff0d;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.botonEliminar{
+    height: 2rem;
+    width: 4rem;
+    background-color: transparent;
+    border: none;
+    color: #e60a0a;
+    cursor: pointer;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+}
+
+
 .btn:hover{
     background: rgba(255, 255, 255, 0.1);
 }
 
 .completado{
     color: #0ae64c;
+    text-decoration: line-through;
+    cursor: pointer;
 }
