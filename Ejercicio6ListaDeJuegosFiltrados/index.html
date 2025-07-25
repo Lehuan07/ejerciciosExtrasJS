@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juegos de Estrategia</title>
+    <link rel="stylesheet" href="/Ejercicio6ListaDeJuegosFiltrados/styles.css" />
+    <script src="/Ejercicio6ListaDeJuegosFiltrados/app.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>🎮 Juegos de Estrategia</h1>
+
+        <div class="filtros">
+            <input type="text" id="buscar" placeholder="🔍 Buscar por nombre o tipo" />
+            <select id="filtroTipo">
+                <option value="Todos">Todos los tipos</option>
+                <option value="RTS">RTS</option>
+                <option value="Tycoon">Tycoon</option>
+                <option value="4X">4X</option>
+                <option value="Táctico">Táctico</option>
+                <option value="Builder">Builder</option>
+            </select>
+        </div>
+
+        <ul id="lista-juegos"></ul>
+
+        <p id="no-resultados" class="oculto">No se encontraron juegos 😢</p>
+    </main>
+
+    
+</body>
+
+</html>
