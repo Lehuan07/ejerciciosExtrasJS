@@ -13,9 +13,9 @@ Condiciones:
     *- Se debe ignorar mayúsculas/minúsculas en la comparación.
 
 Extras (opcionales si querés ir más allá):
-    - Agregar un <select> para filtrar por categoría.
+    *- Agregar un <select> para filtrar por categoría.
     *- Mostrar mensaje si no hay coincidencias.
-    - Estilos para que el catálogo sea visualmente atractivo.
+    *- Estilos para que el catálogo sea visualmente atractivo.
     */
 
 const peliculas = [

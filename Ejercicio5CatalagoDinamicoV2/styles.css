@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    width: 100%;
+    height: 100%; 
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lucida Sans', sans-serif;
+    background: radial-gradient(125% 125% at 50% 10%, #000000 40%, #0d1a36 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.titulo{
+    color: #fafafa;
+    font-size: 3rem;
+    margin: 2rem 2rem 1rem 2rem;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__input{
+    min-width: 30rem;
+    min-height: 5rem;
+    padding: 0 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    background-color: #11388a;
+    border: none;
+    border-bottom: #f7f9fc 2px solid;
+    box-shadow: 0px 3px 10px #fafafa91;
+    outline: none;
+    color: #fafafa;
+}
+
+.juegosEstrategia{
+    color: #fafafa;
+    list-style-type: none;
+    width: 66rem;
+    height: 5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f7f9fc44;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.container__btn {
+    background-color: #11388a;
+    color: #fafafa;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: 0px 3px 10px #fafafa91;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.container__btn:hover {
+    background-color: #0d2b6d;
+}
