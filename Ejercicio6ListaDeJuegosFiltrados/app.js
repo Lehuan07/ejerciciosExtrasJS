@@ -2,10 +2,10 @@
 🧩 Cosas que vas a tener que implementar:
 *Un array de objetos con juegos.
 *Función para mostrar los juegos.
-Función para filtrar por input (keyup).
-Función para filtrar por <select> (change).
-Usar .includes() para comparar texto.
-Mostrar u ocultar juegos usando .classList.add("oculto") o .style.display = "none".
+*Función para filtrar por input (keyup).
+*Función para filtrar por <select> (change).
+*Usar .includes() para comparar texto.
+*Mostrar u ocultar juegos usando .classList.add("oculto") o .style.display = "none".
 */
 
 const juegos = [
