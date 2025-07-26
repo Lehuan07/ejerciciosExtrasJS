@@ -81,3 +81,29 @@ li:last-child {
 .deleteBtn:hover {
     background-color: #d32f2f;
 }
+
+#filterContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+#filterContainer button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}
+
+#filterContainer button:hover {
+    background-color: #bdbdbd;
+}
+
+#taskCounter {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
