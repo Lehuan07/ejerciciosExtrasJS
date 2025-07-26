@@ -52,8 +52,21 @@ function mostrarJuegos(juegos){
 }
 
 
-function filtrarJuegos(){
-    let numero = parseInt()
+function filtrarJuegos() {
+    let numero = parseInt(input.value);
+    let plataforma = select.value;
+
+    const juegosFiltrados = juegos.filter(juego => {
+        let coincideAnio = isNaN(numero) || juego.anio === numero;
+        let coincidePlataforma = plataforma === "Todas" || juego.plataforma === plataforma;
+        return coincideAnio && coincidePlataforma;
+    });
+
+    mostrarJuegos(juegosFiltrados);
 }
+
+
+input.addEventListener("keyup", filtrarJuegos);
+select.addEventListener("change", filtrarJuegos);
 
 mostrarJuegos(juegos)
