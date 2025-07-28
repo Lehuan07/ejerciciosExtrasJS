@@ -1,73 +1,130 @@
+// 📦 Elementos del DOM
+const newTaskInput = document.getElementById("newTaskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskList = document.getElementById("taskList");
+const taskCounter = document.getElementById("taskCounter");
+const filterButtons = document.querySelectorAll("[data-filter]");
 
-
-// Seleccionar elementos del DOM
-const newTaskInput = document.getElementById('newTaskInput');
-const addTaskBtn = document.getElementById('addTaskBtn');
-const taskList = document.getElementById('taskList');
-
-
-
-// 📦 Array donde se guardan las tareas
+// 📌 Array para las tareas
 let tasks = [];
 
-//
-
-
-// 🧠 Cargar tareas desde localStorage al iniciar
+// 🧠 Cargar tareas guardadas
 function loadTasksFromLocalStorage() {
-  // Completá: recuperar desde localStorage y parsear a tasks
-
-    let recuperarTask = localStorage.getItem(localStorage.getItem("misTareas"));
-    if(recuperarTask){
-        tasks = JSON.parse(recuperarTask)
-    }
+  const data = localStorage.getItem("misTareas");
+  if (data) {
+    tasks = JSON.parse(data);
+  }
 }
 
-// 💾 Guardar tareas en localStorage
+// 💾 Guardar tareas
 function saveTasksToLocalStorage() {
-    // Completá: convertir tasks a JSON y guardar
-    localStorage.setItem("misTareas", JSON.stringify(tasks))
+  localStorage.setItem("misTareas", JSON.stringify(tasks));
 }
 
-// 🆕 Crear <li> para cada tarea
-function createTaskElement(taskText, isCompleted = false, index) {
-    // Completá: crear li, checkbox, botón "X", estilos y eventos
-    let li = document.createElement("li");
-    let =
+// 🆕 Crear elemento <li>
+function createTaskElement(taskText, isCompleted, index) {
+  const li = document.createElement("li");
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = taskText;
+  if (isCompleted) {
+    li.classList.add("completada");
+  }
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = isCompleted;
+  checkbox.addEventListener("change", () => {
+    tasks[index].isCompleted = checkbox.checked;
+    saveTasksToLocalStorage();
+    renderTasks();
+  });
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "X";
+  deleteBtn.classList.add("deleteBtn");
+  deleteBtn.addEventListener("click", () => {
+    tasks.splice(index, 1);
+    saveTasksToLocalStorage();
+    renderTasks();
+  });
+
+  li.appendChild(checkbox);
+  li.appendChild(textSpan);
+  li.appendChild(deleteBtn);
+  return li;
 }
 
-// ➕ Agregar nueva tarea con validación
+// 🔁 Renderizar todas las tareas
+function renderTasks(taskArray = tasks) {
+  taskList.innerHTML = "";
+  taskArray.forEach((task, i) => {
+    const li = createTaskElement(task.taskText, task.isCompleted, i);
+    taskList.appendChild(li);
+  });
+  updateCounter();
+}
+
+// ➕ Agregar nueva tarea
 function addTask() {
-    let inputText = newTaskInput.value.trim();
-    if (!inputText) {
+  const input = newTaskInput.value.trim();
+  if (!input) {
     alert("⚠️ Escribí una tarea");
     return;
-    }
-  // Completá: evitar duplicados, crear objeto, guardar y renderizar
+  }
+
+  const duplicado = tasks.some(t => t.taskText === input);
+  if (duplicado) {
+    alert("⚠️ Esa tarea ya existe");
+    return;
+  }
+
+  tasks.push({ taskText: input, isCompleted: false });
+  saveTasksToLocalStorage();
+  renderTasks();
+  newTaskInput.value = "";
 }
 
-// ❌ Eliminar tarea
-function deleteTask(index) {
-  // Completá: eliminar del array, guardar y renderizar
-}
+newTaskInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
 
-// ✅ Cambiar estado de completado
-function toggleCompleted(index) {
-  // Completá: cambiar propiedad, guardar y renderizar
-}
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterTasks(btn.dataset.filter);
+  });
+});
 
-// 🔍 Filtrar tareas
-function filterTasks(filterType) {
-  // "todas", "completadas", "pendientes"
-  // Completá: filtrar el array y renderizar
-}
-
-// 🔢 Actualizar contador
+// 🔢 Contador
 function updateCounter() {
-  // Completá: contar y mostrar total en el DOM
+  taskCounter.textContent = `Total: ${tasks.length} tareas`;
 }
 
-// 🔁 Renderizar lista completa
-function renderTasks(taskArray = tasks) {
-  // Completá: vaciar UL, recorrer array y crear cada li
+// 🔍 Filtro
+function filterTasks(tipo) {
+  let filtradas;
+  if (tipo === "completadas") {
+    filtradas = tasks.filter(t => t.isCompleted);
+  } else if (tipo === "pendientes") {
+    filtradas = tasks.filter(t => !t.isCompleted);
+  } else {
+    filtradas = tasks;
+  }
+  renderTasks(filtradas);
 }
+
+// 📲 Listeners
+addTaskBtn.addEventListener("click", addTask);
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterTasks(btn.dataset.filter);
+  });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadTasksFromLocalStorage();
+  renderTasks();
+});
